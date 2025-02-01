@@ -1,0 +1,53 @@
+/* Reset default margin, padding, and box-sizing */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Remove list styles */
+ul, ol {
+  list-style: none;
+}
+
+/* Remove default text decoration */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Reset button styles */
+button, input, textarea {
+  font: inherit;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+/* Ensure images don't exceed their container */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Remove default styles on form elements */
+input, textarea {
+  border-radius: 0;
+  appearance: none;
+}
+
+/* Set base font */
+body {
+  font-family: sans-serif;
+  line-height: 1.5;
+  background: #fff;
+  color: #000;
+}
+
+/* Normalize heading styles */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}

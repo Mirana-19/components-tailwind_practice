@@ -1,0 +1,7 @@
+@import url('./index.css');
+@import 'tailwindcss';
+
+@theme {
+  --color-primary: oklch(75.94% 0.1284623260673707 249.5902275224028);
+  --color-secondary: oklch(49.47% 0.2067 249.59);
+}
