@@ -1,19 +1,19 @@
 /* eslint-disable react/prop-types */
 import { Button } from '../Button/Button';
 
-export const FeedbackOptions = ({ setGood, setNeutral, setBad }) => {
+export const FeedbackOptions = ({ handler }) => {
   return (
-    <div className="mx-auto w-[300px]">
-      <h1>Please leave feedback</h1>
-      <ul className="flex justify-around">
+    <div className="mb-[40px]">
+      <h1 className="text-center">Please leave feedback</h1>
+      <ul className="flex justify-evenly mt-[20px]">
         <li>
-          <Button name="Good" handler={setGood} />
+          <Button type={"click"} name="Good" handler={handler} />
         </li>
         <li>
-          <Button name="Neutral" handler={setNeutral}/>
+          <Button type={"click"} name="Neutral" handler={handler} />
         </li>
         <li>
-          <Button name="Bad"  handler={setBad}/>
+          <Button type={"click"} name="Bad" handler={handler} />
         </li>
       </ul>
     </div>
