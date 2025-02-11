@@ -1,9 +1,13 @@
 /* eslint-disable react/prop-types */
 
-import { nanoid } from 'nanoid';
 import { Button } from '../../Feedback/Button/Button';
+import { Input } from '../Input/Input';
+import { useState } from 'react';
 
-export const ContactsForm = ({ setContacts, name, setName, number, setNumber }) => {
+export const ContactsForm = ({ onAdd }) => {
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
+
   const handleInput = e => {
     if (e.target.name === 'name') {
       setName(e.target.value.trim());
@@ -14,8 +18,11 @@ export const ContactsForm = ({ setContacts, name, setName, number, setNumber }) 
 
   const handleSubmit = e => {
     e.preventDefault();
-    setContacts(prevState => [...prevState, {id: nanoid(), name, number }]);
+
+    onAdd({ name, number });
+
     setName('');
+    setNumber('');
   };
 
   return (
@@ -28,24 +35,12 @@ export const ContactsForm = ({ setContacts, name, setName, number, setNumber }) 
         <label htmlFor="name" className="text-[20px]">
           Name
         </label>
-        <input
-          type="text"
-          name="name"
-          value={name}
-          onChange={handleInput}
-          required
-          className="outline-[2px] outline-primary rounded-[4px] hover:outline-secondary focus:outline-secondary"
-        />
+        <Input name="name" handler={handleInput} type="text" value={name} required={true} />
+
         <label htmlFor="name" className="text-[20px]">
           Number
         </label>
-        <input
-          type="tel"
-          name="number"
-          onChange={handleInput}
-          required
-          className="outline-[2px] outline-primary rounded-[4px] hover:outline-secondary focus:outline-secondary"
-        />
+        <Input name="number" type="tel" required={true} handler={handleInput} value={number} />
 
         <Button type={'submit'} name={'Add contact'} />
       </form>
