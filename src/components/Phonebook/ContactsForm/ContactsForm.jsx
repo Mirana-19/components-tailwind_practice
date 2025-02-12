@@ -10,16 +10,16 @@ export const ContactsForm = ({ onAdd }) => {
 
   const handleInput = e => {
     if (e.target.name === 'name') {
-      setName(e.target.value.trim());
+      setName(e.target.value);
     } else {
-      setNumber(e.target.value.trim());
+      setNumber(e.target.value);
     }
   };
 
   const handleSubmit = e => {
     e.preventDefault();
 
-    onAdd({ name, number });
+    onAdd( name.trim(), number.trim() );
 
     setName('');
     setNumber('');

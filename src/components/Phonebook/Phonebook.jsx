@@ -6,7 +6,6 @@ import { ContactsList } from './ContactsList/ContactsList';
 
 export const Phonebook = () => {
   const [contacts, setContacts] = useState([]);
-  const [filter, setFilter] = useState('');
 
   useEffect(() => {
     const storedContacts = localStorage.getItem('contacts');
@@ -24,7 +23,7 @@ export const Phonebook = () => {
     }
   }, [contacts]);
 
-  const handleAddContact = ({ name, number }) => {
+  const handleAddContact = ( name, number ) => {
     const checkDuplicates = contacts.some(
       ({ name: contactName }) => name.toLowerCase() === contactName.toLowerCase()
     );
@@ -45,12 +44,7 @@ export const Phonebook = () => {
   return (
     <div className="w-[600px] mt-[50px] mx-auto">
       <ContactsForm onAdd={handleAddContact} />
-      <ContactsList
-        contacts={contacts}
-        filter={filter}
-        setFilter={setFilter}
-        onDelete={handleDeleteContact}
-      />
+      <ContactsList contacts={contacts} onDelete={handleDeleteContact} />
     </div>
   );
 };
